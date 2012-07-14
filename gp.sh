@@ -1,5 +1,6 @@
 cd ~/workspace/Netx
-git add .
+
+git add ./
 git commit -m "$1"
 git push
 
