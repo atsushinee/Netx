@@ -20,6 +20,7 @@ namespace Netx.WebSocket
         public List<WebSocketSession> sendSessionList;
         private string addr;
         private int port;
+        private string path;
         private bool scrollToEnd = true;
 
         public WebsocketServerWindow()
@@ -102,7 +103,7 @@ namespace Netx.WebSocket
                 {
                     if (socketServer.Start())
                     {
-                        AppendInfo($">>>服务启动：ws://{addr}:{port}");
+                        AppendInfo($">>>服务启动：ws://{addr}:{port}{path}");
                         return true;
                     }
                     else
@@ -146,6 +147,7 @@ namespace Netx.WebSocket
             {
                 port = int.Parse(InputPort.Text.ToString());
                 addr = SelectIpAddr.SelectedValue.ToString();
+                path = InputPath.Text.ToString();
                 if (InitServer())
                 {
                     BtnControlServer.IsEnabled = false;
@@ -153,6 +155,7 @@ namespace Netx.WebSocket
                     BtnSend.IsEnabled = true;
                     SelectIpAddr.IsEnabled = false;
                     InputPort.IsEnabled = false;
+                    InputPath.IsEnabled = false;
                 };
             }
             else
@@ -172,6 +175,7 @@ namespace Netx.WebSocket
                 BtnStopServer.IsEnabled = false;
                 SelectIpAddr.IsEnabled = true;
                 InputPort.IsEnabled = true;
+                InputPath.IsEnabled = true;
                 AppendInfo(">>>服务已停止");
             }
             catch (Exception e)

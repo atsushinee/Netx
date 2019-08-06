@@ -44,8 +44,9 @@
                 <GroupBox Header="参数配置" Margin="5">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                         <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Center" Orientation="Horizontal">
-                            <ComboBox x:Name="SelectIpAddr" SelectedIndex="0" Width="120" Margin="10" FontWeight="Bold"/>
-                            <TextBox x:Name="InputPort" Text="9009" Margin="10" Width="50" FontWeight="Bold" MaxLength="5"/>
+                            <ComboBox x:Name="SelectIpAddr" SelectedIndex="0" Width="100" Margin="5" FontWeight="Bold"/>
+                            <TextBox x:Name="InputPort" Text="9009" Margin="5" Width="50" FontWeight="Bold" MaxLength="5"/>
+                            <TextBox x:Name="InputPath" Margin="5" Width="50" FontWeight="Bold"/>
                         </StackPanel>
                         <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Center"  Orientation="Horizontal">
                             <Button x:Name="BtnControlServer" Content="启动" Width="70" Margin="10"/>
