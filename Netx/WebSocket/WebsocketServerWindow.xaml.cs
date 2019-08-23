@@ -18,6 +18,7 @@ namespace Netx.WebSocket
         private WebSocketServer socketServer;
         public List<WebSocketSession> sessionList;
         public List<WebSocketSession> sendSessionList;
+        private object obj = new object();
         private string addr;
         private int port;
         private string path;
@@ -160,7 +161,7 @@ namespace Netx.WebSocket
             }
             else
             {
-                MessageDialog.Show(this,"服务端口输入不合法");
+                MessageDialog.Show(this, "服务端口输入不合法");
             }
         }
 
@@ -186,13 +187,14 @@ namespace Netx.WebSocket
 
         private void RefreshSessionList(bool clear = false)
         {
-
-
             Dispatcher.Invoke(() =>
             {
                 if (clear)
                 {
-                    sessionList.Clear();
+                    lock (obj)
+                    {
+                        sessionList.Clear();
+                    }
                 }
                 ListViewSession.ItemsSource = null;
                 ListViewSession.ItemsSource = sessionList;
@@ -200,20 +202,22 @@ namespace Netx.WebSocket
         }
         private void SocketServer_SessionClosed(WebSocketSession session, SuperSocket.SocketBase.CloseReason value)
         {
-
-            sessionList.Remove(session);
-            sendSessionList.Remove(session);
-
+            lock (obj)
+            {
+                sessionList.Remove(session);
+                sendSessionList.Remove(session);
+            }
             RefreshSessionList();
             AppendInfo($"【{session.RemoteEndPoint}】: 退出会话");
         }
 
         private void SocketServer_NewSessionConnected(WebSocketSession session)
         {
-
-            sessionList.Add(session);
-            sendSessionList.Add(session);
-
+            lock (obj)
+            {
+                sessionList.Add(session);
+                sendSessionList.Add(session);
+            }
             RefreshSessionList();
             AppendInfo($"【{session.RemoteEndPoint}】: 加入会话");
         }
@@ -232,12 +236,14 @@ namespace Netx.WebSocket
         {
 
             var sessionId = (sender as CheckBox).Tag.ToString();
-
-            foreach (var session in sessionList)
+            lock (obj)
             {
-                if (session.SessionID == sessionId)
+                foreach (var session in sessionList)
                 {
-                    sendSessionList.Add(session);
+                    if (session.SessionID == sessionId)
+                    {
+                        sendSessionList.Add(session);
+                    }
                 }
             }
 
@@ -246,11 +252,14 @@ namespace Netx.WebSocket
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             var sessionId = (sender as CheckBox).Tag.ToString();
-            foreach (var session in sessionList)
+            lock (obj)
             {
-                if (session.SessionID == sessionId)
+                foreach (var session in sessionList)
                 {
-                    sendSessionList.Remove(session);
+                    if (session.SessionID == sessionId)
+                    {
+                        sendSessionList.Remove(session);
+                    }
                 }
             }
         }
