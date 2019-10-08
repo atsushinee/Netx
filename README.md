@@ -5,3 +5,5 @@
 ![服务端界面](2.png)
 ![客户端界面](4.png)
 ![多实例界面](3.png)
+
+[下载地址](https://github.com/atsushinee/Netx/releases)
