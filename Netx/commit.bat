@@ -1,7 +1,7 @@
 @echo off
 for /l %%i in (1,1,30) do (
-    date 2020/10/%%i
-    echo 2020/10/%%i > .Netx
+    date 2020/11/%%i
+    echo 2020/11/%%i > .Netx
     git add .
     git commit -m "auto commit date"
 )
