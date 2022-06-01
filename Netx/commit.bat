@@ -5,4 +5,4 @@ for /l %%i in (1,1,30) do (
     git add .
     git commit -m "auto commit date"
 )
-git push 
+@REM git push 
