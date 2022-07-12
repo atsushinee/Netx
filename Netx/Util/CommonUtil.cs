@@ -8,6 +8,8 @@ namespace Netx.Util
 {
     public class CommonUtil
     {
+         
+        // get ipv4 address async
         public async static Task<List<string>> GetIpv4AddrListAsync(bool showLocal = true)
         {
             var ipv4List = new List<string>();
