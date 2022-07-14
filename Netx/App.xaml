@@ -14,6 +14,7 @@
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="CustomColumnHeaderContainerStyle" TargetType="{x:Type GridViewColumnHeader}">
                 <Setter Property="Visibility" Value="Collapsed"/>
+                <!-- set margin and padding zero px -->
                 <Setter Property="Margin" Value="0"/>
                 <Setter Property="Padding" Value="0"/>
             </Style>
