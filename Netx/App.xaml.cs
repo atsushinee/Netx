@@ -13,5 +13,6 @@ namespace Netx
     /// </summary>
     public partial class App : Application
     {
+    	// see the MainWindow.xaml.cs
     }
 }
