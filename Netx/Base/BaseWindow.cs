@@ -10,6 +10,7 @@ namespace Netx.Base
     /// </summary>
     public abstract partial class BaseWindow : Window
     {
+    
         public abstract void InitEvents();
 
         public async void GetIpv4AddrListHandler(Action<List<string>> action, bool showLocal = true)
