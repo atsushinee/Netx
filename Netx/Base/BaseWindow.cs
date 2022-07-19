@@ -13,10 +13,10 @@ namespace Netx.Base
     
         public abstract void InitEvents();
 
-        public async void GetIpv4AddrListHandler(Action<List<string>> action, bool showLocal = true)
+        public async void GetIpv4AddrListHandler(Action<List<string>> onGetResult, bool showLocal = true)
         {
             var result = await CommonUtil.GetIpv4AddrListAsync(showLocal);
-            action(result);
+            onGetResult(result);
         }
     }
 }
