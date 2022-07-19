@@ -6,7 +6,7 @@ using System.Windows;
 namespace Netx.Base
 {
     /// <summary>
-    /// BaseWindow.xaml 的交互逻辑
+    /// BaseWindow.xaml
     /// </summary>
     public abstract partial class BaseWindow : Window
     {
