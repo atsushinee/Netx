@@ -17,6 +17,7 @@
         <materialDesign:Card Padding="8" Height="180" materialDesign:ShadowAssist.ShadowDepth="Depth3">
             <Grid>
                 <Grid.RowDefinitions>
+                    <!-- RowDefinitions -->
                     <RowDefinition Height="60*"/>
                     <RowDefinition Height="40*"/>
                 </Grid.RowDefinitions>
