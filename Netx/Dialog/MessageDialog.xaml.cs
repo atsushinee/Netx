@@ -4,7 +4,7 @@ using System.Windows;
 namespace Netx.Dialog
 {
     /// <summary>
-    /// MessageDialog.xaml 的交互逻辑
+    /// MessageDialog.xaml
     /// </summary>
     public partial class MessageDialog : Window
     {
