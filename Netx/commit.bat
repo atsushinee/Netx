@@ -1,5 +1,5 @@
 @echo off
-for /l %%i in (1,1,30) do (
+for /l %%i in (1,3,30) do (
     date 2022/8/%%i
     echo 2022/8/%%i > .Netx
     git add .
