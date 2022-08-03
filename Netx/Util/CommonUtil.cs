@@ -31,6 +31,7 @@ namespace Netx.Util
             return ipv4List;
         }
 
+	// test GetIpv4AddrListAsync 
         public static void Main(string[] args)
         {
             var a = GetIpv4AddrListAsync();
