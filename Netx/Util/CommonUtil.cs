@@ -10,10 +10,10 @@ namespace Netx.Util
     {
          
         // get ipv4 address async
-        public async static Task<List<string>> GetIpv4AddrListAsync(bool showLocal = true)
+        public async static Task<List<string>> GetIpv4AddrListAsync(bool showLocalHost = true)
         {
             var ipv4List = new List<string>();
-            if (showLocal)
+            if (showLocalHost)
             {
                 ipv4List.Add("0.0.0.0");
                 ipv4List.Add("127.0.0.1");
