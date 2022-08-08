@@ -14,7 +14,9 @@ namespace Netx.WebSocket
     public partial class WebsocketClientWindow : BaseWindow
     {
         private WebSocket4Net.WebSocket socketClient;
+        
         private string url;
+        
         private bool scrollToEnd = true;
 
         public WebsocketClientWindow()
@@ -36,11 +38,13 @@ namespace Netx.WebSocket
         {
             Loaded += WebsocketServerWindow_Loaded;
             Closed += WebsocketClientWindow_Closed;
+            
             BtnControlConn.Click += BtnControlConn_Click;
             BtnStopConn.Click += BtnStopConn_Click;
             BtnSend.Click += BtnSend_Click;
             BtnClose.Click += BtnClose_Click;
             BtnMin.Click += BtnMin_Click;
+            
             GridMainTitle.PreviewMouseLeftButtonDown += GroupBoxMain_PreviewMouseLeftButtonDown;
         }
 
@@ -53,6 +57,7 @@ namespace Netx.WebSocket
         {
             WindowState = WindowState.Minimized;
         }
+        
         private void GroupBoxMain_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
