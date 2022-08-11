@@ -16,12 +16,18 @@ namespace Netx.WebSocket
     public partial class WebsocketServerWindow : BaseWindow
     {
         private WebSocketServer socketServer;
+        
         public List<WebSocketSession> sessionList;
         public List<WebSocketSession> sendSessionList;
+        
         private object obj = new object();
+        
         private string addr;
+        
         private int port;
+        
         private string path;
+        
         private bool scrollToEnd = true;
 
         public WebsocketServerWindow()
@@ -42,11 +48,13 @@ namespace Netx.WebSocket
         {
             Loaded += WebsocketServerWindow_Loaded;
             Closed += WebsocketServerWindow_Closed;
+            
             BtnControlServer.Click += BtnControlServer_Click;
             BtnStopServer.Click += BtnStopServer_Click;
             BtnSend.Click += BtnSend_Click;
             BtnClose.Click += BtnClose_Click;
             BtnMin.Click += BtnMin_Click;
+            
             GridMainTitle.PreviewMouseLeftButtonDown += GroupBoxMain_PreviewMouseLeftButtonDown;
         }
 
@@ -73,6 +81,7 @@ namespace Netx.WebSocket
         private void BtnSend_Click(object sender, RoutedEventArgs e)
         {
             var msg = InputSendMessage.Text.ToString();
+            
             if (!string.IsNullOrWhiteSpace(msg))
             {
                 socketServer.Broadcast(sendSessionList, msg, null);
@@ -142,6 +151,7 @@ namespace Netx.WebSocket
         {
             return int.TryParse(port, out int portInt) && (portInt <= 65500 && portInt >= 0);
         }
+        
         private void StartServer()
         {
             if (CheckInputPort(InputPort.Text.ToString()))
@@ -200,6 +210,7 @@ namespace Netx.WebSocket
                 ListViewSession.ItemsSource = sessionList;
             });
         }
+        
         private void SocketServer_SessionClosed(WebSocketSession session, SuperSocket.SocketBase.CloseReason value)
         {
             lock (obj)
