@@ -9,6 +9,7 @@
                 ResizeMode="CanMinimize"
         Title="Netx /atsushinee@outlook.com" Height="200" Width="500">
     <Grid>
+    
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
@@ -16,6 +17,7 @@
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*"/>
             <ColumnDefinition Width="25*"/>
@@ -23,6 +25,7 @@
             <ColumnDefinition Width="25*"/>
             <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
+        
         <Grid Grid.Row="0" Grid.Column="0" Margin="10" Grid.ColumnSpan="2" Grid.RowSpan="5">
             <Button x:Name="BtnWebsocketServer" Content="New Websocket Server" Height="100"/>
         </Grid>
